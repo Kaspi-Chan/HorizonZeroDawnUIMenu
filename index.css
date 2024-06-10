@@ -1,0 +1,19 @@
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-image: url(./assets/background.png);
+  font-family: "Oita W01 Cond Medium";
+  color: white;
+}
+
+h1{
+  font-family: 'Omar Light';
+  font-size: 42px;
+}
+

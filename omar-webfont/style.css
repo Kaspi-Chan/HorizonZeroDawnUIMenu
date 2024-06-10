@@ -1,0 +1,30 @@
+    @font-face {
+    font-family: 'Omar Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Omar Regular'), url('Ahmet Altun - Omar-Regular.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Omar Regular Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Omar Regular Italic'), url('Ahmet Altun - Omar-RegularItalic.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Omar Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Omar Light'), url('Ahmet Altun - Omar-Light.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Omar Light Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Omar Light Italic'), url('Ahmet Altun - Omar-LightItalic.woff') format('woff');
+    }
