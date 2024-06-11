@@ -40,6 +40,8 @@ main{
 .container{
   max-width: 97vw;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   padding: 0.5rem 0 2rem;
   margin: 0 auto;
   border: 1px solid white;
@@ -79,15 +81,127 @@ main{
 }
 
 .main-content{
+  flex: 1;
   display: flex;
   align-items: stretch;
 }
 .main-content > div{
   outline: 1px solid white;
 }
+
 .side-nav{
   min-width: 10%;
+  display: flex;
 }
+.side-nav-menu{
+  
+}
+.side-nav-links{
+  display: flex;
+  flex-direction: column;  
+  width: max-content;
+  padding-inline: 0.3em;
+  position: relative;
+}
+.side-nav-links::before{
+  content: "";
+  position: absolute; 
+  left: -5px;
+  right: -5px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.85) 65%, rgba(0,0,0,0) 100%);
+  filter: blur(25px);
+  height: 135%;
+}
+.side-nav-link{
+  position: relative;
+  z-index: 2;
+}
+.side-nav-link{
+  background-position: center;
+  background-size: 100%;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  position: relative;
+}
+.side-nav-link.new::before{
+  content: '';
+  background-image: url('./assets/badge-new-small-off.png');
+  background-size: 100%;
+  background-position: center;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.25rem;
+  height: 1.25rem;
+}
+/* Weapons */
+.side-nav-link.--weapons{
+  background-image: url(./assets/ui-side-weapons-off.png);
+}
+.side-nav-link.--weapons:hover{
+  background-image: url(./assets/ui-side-weapons-hover.png);
+}
+.side-nav-link.--weapons.current{
+  background-image: url(./assets/ui-side-weapons-on.png);
+}
+
+/* Outfits */
+.side-nav-link.--outfits{
+  background-image: url(./assets/ui-side-outfits-off.png);
+}
+.side-nav-link.--outfits:hover{
+  background-image: url(./assets/ui-side-outfits-hover.png);
+}
+.side-nav-link.--outfits.current{
+  background-image: url(./assets/ui-side-outfits-on.png);
+}
+
+/* Tools */
+.side-nav-link.--tools{
+  background-image: url(./assets/ui-side-tools-off.png);
+}
+.side-nav-link.--tools:hover{
+  background-image: url(./assets/ui-side-tools-hover.png);
+}
+.side-nav-link.--tools.current{
+  background-image: url(./assets/ui-side-tools-on.png);
+}
+
+/* Upgrades */
+.side-nav-link.--upgrades{
+  background-image: url(./assets/ui-side-upgrades-off-.png);
+}
+.side-nav-link.--upgrades:hover{
+  background-image: url(./assets/ui-side-upgrades-hover.png);
+}
+.side-nav-link.--upgrades.current{
+  background-image: url(./assets/ui-side-upgrades-on.png);
+}
+
+/* Ammo */
+.side-nav-link.--ammo{
+  background-image: url(./assets/ui-side-ammo-off.png);
+}
+.side-nav-link.--ammo:hover{
+  background-image: url(./assets/ui-side-ammo-hover.png);
+}
+.side-nav-link.--ammo.current{
+  background-image: url(./assets/ui-side-ammo-on.png);
+}
+
+/* Travel */
+.side-nav-link.--travel{
+  background-image: url(./assets/ui-side-travel-off.png);
+}
+.side-nav-link.--travel:hover{
+  background-image: url(./assets/ui-side-travel-hover.png);
+}
+.side-nav-link.--travel.current{
+  background-image: url(./assets/ui-side-travel-on.png);
+}
+
 .items-grid{
   min-width: 45%;
 }
