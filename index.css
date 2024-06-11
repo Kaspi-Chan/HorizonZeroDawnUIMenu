@@ -24,14 +24,13 @@ nav {
 }
 
 body{
-  background:no-repeat center 100% url(./assets/background.png);
   font-family: "Oita W01 Cond Medium";
   color: white;
   letter-spacing: .1rem;
 }
 
 main{
-  background: url(./assets/background.png) no-repeat center / 100%;
+  background: url(./assets/background.png) no-repeat center / cover;
   height: 100vh;
   overflow: hidden;
 }
@@ -91,6 +90,9 @@ main{
   cursor: pointer;
   position: relative;
 }
+.nav-link:hover{
+  color: #FFFDD2;
+}
 
 .nav-link.new::before{
   content: '';
@@ -115,8 +117,7 @@ main{
   background: url(./assets/ui-highlight-arrow-topbar.png) no-repeat center / 3.5rem;
 }
 
-.nav-link.current,
-.nav-link:hover{
+.nav-link.current{
   color: #dcd284;
 }
 
@@ -130,6 +131,9 @@ main{
   min-width: 13.5%;
   display: flex;
 }
+.side-nav-menu{
+  padding-left: 1rem;
+}
 .side-nav-links{
   display: flex;
   flex-direction: column;  
@@ -140,15 +144,11 @@ main{
 .side-nav-links::before{
   content: "";
   position: absolute; 
-  left: -5px;
-  right: -5px;
+  left: 0;
+  right: 0;
   background: linear-gradient(180deg, rgba(0,0,0,0.85) 65%, rgba(0,0,0,0) 100%);
-  filter: blur(25px);
-  height: 135%;
-}
-.side-nav-link{
-  position: relative;
-  z-index: 2;
+  filter: blur(10px);
+  height: 130%;
 }
 .side-nav-link{
   background-position: center;
@@ -157,6 +157,11 @@ main{
   height: 3rem;
   cursor: pointer;
   position: relative;
+  z-index: 2;
+}
+
+.side-nav-link:not(:first-child){
+  margin-top: -0.3rem;
 }
 .side-nav-link.new::before{
   content: '';
@@ -339,8 +344,6 @@ main{
   }
 } */
 
-
-
 .grid-item > img{
   max-width: 7rem;
 }
@@ -413,17 +416,6 @@ main{
   align-items: center;
   position: relative;
 }
-/* .button-footer::after{
-  content: '';
-  position: absolute;
-  width: 120%;
-  height: 300%;
-  left: -10%;
-  z-index: 1;
-  top: -200px;
-  filter: blur(30px); 
-  background: linear-gradient(200deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.5) 100%) 
-} */
 
 .controller-input-container{
   display: flex;
