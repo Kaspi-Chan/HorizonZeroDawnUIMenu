@@ -27,6 +27,7 @@ body{
   background:no-repeat center 100% url(./assets/background.png);
   font-family: "Oita W01 Cond Medium";
   color: white;
+  letter-spacing: .1rem;
 }
 
 main{
@@ -42,10 +43,9 @@ main{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 0 2rem;
+  padding: 0.5rem 0.5rem 1rem;
   margin: 0 auto;
 }
-
 
 .nav-main{
   display: flex;
@@ -59,12 +59,13 @@ main{
   justify-content: center;
   gap: 1.3rem;
   margin: 0 auto;
-  border-bottom: 5px solid gray;
   padding-top: 0.6rem;
+  border-image: url(./assets/ui-grid-big-off.png);
+  border-image-slice: 60;  
+  border-image-width: 0 0 0.2rem 0;
+  border-image-repeat: stretch;
 }
-/* .nav-menu > img{
-  max-width: 2.5rem;
-} */
+
 
 .nav-links{
   display: flex;
@@ -341,7 +342,6 @@ main{
 .desc-body{
   padding-left: 1.25rem;
   padding-top: .5rem;
-  letter-spacing: .1rem;
 }
 
 .desc-info{
@@ -369,4 +369,18 @@ main{
   align-items: center;
   gap: 0.1rem;
   color: #7b7a76;
+}
+
+.button-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.controller-input-container{
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.controller-input-container > span{
+  margin-bottom: 0.1rem;
 }
