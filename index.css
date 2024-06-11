@@ -86,7 +86,7 @@ main{
   align-items: stretch;
 }
 .main-content > div{
-  outline: 1px solid white;
+  /* outline: 1px solid white; */
 }
 
 .side-nav{
@@ -215,10 +215,57 @@ main{
   background-size: 110%;
   background-position: center;
   cursor: pointer ;
+  position: relative;
 }
-.grid-item:hover{
+.grid-item:hover,
+.grid-item.current{
   background-image: url(./assets/ui-grid-big-on.png);
 }
+
+.grid-item:hover::before,
+.grid-item.current::before,
+.grid-item:hover::after,
+.grid-item.current::after{
+  content: '';
+  position: absolute;
+  background-size: 100%;
+  background-position: center;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.grid-item:hover::before,
+.grid-item.current::before{
+  background-image: url(/assets/cell-highlight-left.png);
+  animation: breathe-left .75s ease-in-out infinite alternate;
+  top: 0;
+  left: 0;
+}
+@keyframes breathe-left{
+  from{
+    transform: translate(-20%, -10%);
+  }
+  to{
+    transform: translate(-30%, -20%);
+  }
+}
+
+.grid-item:hover::after,
+.grid-item.current::after{
+  background-image: url(/assets/cell-highlight-right.png);
+  animation: breathe-right .75s ease-in-out infinite alternate;
+  bottom: 0;
+  right: 0;
+}
+@keyframes breathe-right{
+  from{
+    transform: translate(20%, 10%);
+  }
+  to{
+    transform: translate(30%, 20%);
+  }
+}
+
 .grid-item > img{
   max-width: 7rem;
 }
