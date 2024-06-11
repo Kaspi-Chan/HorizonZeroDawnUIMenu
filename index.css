@@ -5,15 +5,67 @@
   margin: 0;
   padding: 0;
 }
+ul{
+  list-style: none;
+}
+
+html {
+  font-size: 10px; 
+}
+
+nav {
+  font-size: 1.2rem;
+  font-family: 'Omar Light';
+  text-transform: uppercase;
+}
 
 body{
-  background-image: url(./assets/background.png);
+  background:no-repeat center 100% url(./assets/background.png);
   font-family: "Oita W01 Cond Medium";
   color: white;
 }
 
-h1{
-  font-family: 'Omar Light';
-  font-size: 42px;
+main{
+  background-image: url(./assets/background.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  height: 100vh;
 }
 
+.container{
+  max-width: 97vw;
+  min-height: 100vh;
+  padding: 0.5rem 0 2rem;
+  margin: 0 auto;
+  border: 1px solid white;
+}
+.nav-main{
+  display: flex;
+  justify-content: center;
+}
+.nav-menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3rem;
+  margin: 0 auto;
+  border-bottom: 5px solid gray;
+  padding-top: 0.6rem;
+}
+.nav-menu > img{
+  max-width: 2.5rem;
+}
+
+.nav-links{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1.3rem;
+}
+
+.nav-link{
+  letter-spacing: 0.35rem;
+}
