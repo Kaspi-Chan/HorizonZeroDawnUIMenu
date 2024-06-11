@@ -44,7 +44,6 @@ main{
   flex-direction: column;
   padding: 0.5rem 0 2rem;
   margin: 0 auto;
-  border: 1px solid white;
 }
 
 
@@ -74,6 +73,7 @@ main{
   align-items: center;
   text-align: center;
   gap: 1.3rem;
+  color: #9da8a6;
 }
 
 .nav-link{
@@ -90,11 +90,8 @@ main{
 }
 
 .side-nav{
-  min-width: 10%;
+  min-width: 13.5%;
   display: flex;
-}
-.side-nav-menu{
-  
 }
 .side-nav-links{
   display: flex;
@@ -203,7 +200,7 @@ main{
 }
 
 .items-grid{
-  min-width: 45%;
+  max-width: 40%;
 }
 .grid-main{
   display: flex;
@@ -217,11 +214,16 @@ main{
   cursor: pointer ;
   position: relative;
 }
+
+
+/* Hover/Focus logic */
 .grid-item:hover,
 .grid-item.current{
   background-image: url(./assets/ui-grid-big-on.png);
 }
-.grid-item:last-child::before{
+
+.grid-item:hover::before,
+.grid-item.current::before{
   content: ""; 
   position: absolute;  
   background: 
@@ -244,6 +246,17 @@ main{
     left: -10%;
   }
 } 
+
+.grid-item.new::after{
+  content: '';
+  position: absolute;
+  top: -.5rem;
+  right: -.75rem;
+  left: 0;
+  bottom: 0;
+  background: url(./assets/badge-new-big.png) no-repeat top right / 2.25rem;
+}
+
 /* 
 .grid-item:hover::before,
 .grid-item.current::before,
@@ -295,5 +308,65 @@ main{
   max-width: 7rem;
 }
 .items-desc{
-  min-width: 45%;
+  min-width: 40%;
+}
+
+.desc-main{
+  min-height: 100%;
+  padding-left: 2.5rem;
+  background: url(./assets/ui-frame-panel-med.png) top left / 60% no-repeat;
+  background-position: 1rem top;
+}
+
+.desc-heading{
+  font-family: 'Omar Light';
+  font-size: 1.75rem;
+  display: inline-block;
+  letter-spacing: .2rem;
+  padding: 1rem .5rem;
+  position: relative;
+  z-index: 1;
+}
+.desc-heading::after{
+  content: '';
+  position: absolute;
+  left: -1.15rem;
+  top: 0;
+  z-index: -1;
+  width: 105%;
+  height: 100%;
+  background: url(./assets/ui-header-bg.png) top left/cover no-repeat;
+}
+
+.desc-body{
+  padding-left: 1.25rem;
+  padding-top: .5rem;
+  letter-spacing: .1rem;
+}
+
+.desc-info{
+  font-size: 0.95rem;
+  color: #c7bf9e;
+  margin-bottom: .75rem;
+}
+
+.suited-item{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.suited-item-name{
+  word-spacing: .2rem;
+}
+
+.suited-item-owned > img{
+  max-width: 1.5rem;
+  filter: sepia(1) saturate(0%) brightness(50%);
+  margin: 0 0.2rem;
+}
+.suited-item-owned{
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  color: #7b7a76;
 }
