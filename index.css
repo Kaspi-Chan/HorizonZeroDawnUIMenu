@@ -205,6 +205,23 @@ main{
 .items-grid{
   min-width: 45%;
 }
+.grid-main{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+.grid-item{
+  background-image: url(./assets/ui-grid-big-off.png);
+  background-size: 110%;
+  background-position: center;
+  cursor: pointer ;
+}
+.grid-item:hover{
+  background-image: url(./assets/ui-grid-big-on.png);
+}
+.grid-item > img{
+  max-width: 7rem;
+}
 .items-desc{
   min-width: 45%;
 }
