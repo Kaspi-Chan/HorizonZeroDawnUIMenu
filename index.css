@@ -221,7 +221,30 @@ main{
 .grid-item.current{
   background-image: url(./assets/ui-grid-big-on.png);
 }
+.grid-item:last-child::before{
+  content: ""; 
+  position: absolute;  
+  background: 
+      url('./assets/cell-highlight-left.png') no-repeat top left / 3.5rem 3.5rem,
+      url('./assets/cell-highlight-right.png') no-repeat bottom right / 3.5rem 3.5rem;
+  animation: breathe .75s ease-in-out infinite alternate;
+}
 
+@keyframes breathe{
+  from{
+    width: 110%;
+    height: 110%;
+    top: -5%;
+    left: -5%;
+  }
+  to{
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+  }
+} 
+/* 
 .grid-item:hover::before,
 .grid-item.current::before,
 .grid-item:hover::after,
@@ -264,7 +287,9 @@ main{
   to{
     transform: translate(30%, 20%);
   }
-}
+} */
+
+
 
 .grid-item > img{
   max-width: 7rem;
