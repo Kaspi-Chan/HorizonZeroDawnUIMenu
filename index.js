@@ -12,3 +12,21 @@ function resize() {
 resize();
 
 window.addEventListener('resize', resize);
+
+
+const sideNav = document.querySelector('.side-nav');
+const sideNavIconsCont = document.querySelector('.side-nav-links')
+const itemDesc = document.querySelector('.items-desc')
+const itemsGrid = document.querySelector('.items-grid')
+
+console.log(sideNav)
+sideNavIconsCont.addEventListener('mouseenter', () => {
+  sideNav.classList.add('expanded-menu')
+  itemDesc.classList.add('expanded-menu')
+  itemsGrid.classList.add('expanded-menu')
+})
+sideNav.addEventListener('mouseleave', () => {
+  itemDesc.classList.remove('expanded-menu')
+  itemsGrid.classList.remove('expanded-menu')
+  sideNav.classList.remove('expanded-menu')
+})

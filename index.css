@@ -27,6 +27,7 @@ body {
   font-family: 'Oita W01 Cond Medium';
   color: white;
   letter-spacing: 0.1rem;
+  overflow: hidden;
 }
 
 main {
@@ -158,8 +159,9 @@ main {
 }
 
 .side-nav {
-  min-width: 13.5%;
-  display: flex;
+  padding-right: 5rem;
+  transition: padding 0.75s ease-out;
+  outline: 1px solid white;
 }
 .side-nav-menu {
   padding-left: 1rem;
@@ -184,7 +186,18 @@ main {
   filter: blur(10px);
   height: 130%;
 }
-.side-nav-link {
+
+.side-nav-link{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.side-nav-link:not(:first-child) {
+  margin-top: -0.3rem;
+}
+
+.side-nav-icon {
   background-position: center;
   background-size: 100%;
   width: 3rem;
@@ -194,9 +207,6 @@ main {
   z-index: 2;
 }
 
-.side-nav-link:not(:first-child) {
-  margin-top: -0.3rem;
-}
 .side-nav-link.new::before {
   content: '';
   background-image: url('./assets/badge-new-small-off.png');
@@ -209,69 +219,118 @@ main {
   width: 1.25rem;
   height: 1.25rem;
 }
+
+.side-nav-link > span{
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  text-align: left;
+  transform: translateX(-5rem);
+  left: 4rem;
+  white-space: nowrap;
+  cursor: pointer;
+  color: #9da8a6;
+  transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out, transform 0.75s ease-in-out;
+}
+
+/* Hover animation */
+.side-nav-link:hover > span{
+  color: #fffdd2;
+}
+.side-nav.expanded-menu .side-nav-link > span{
+  opacity: 1;
+  visibility:visible;
+  transform: translate(0);
+}
+
+.side-nav.expanded-menu{
+  padding-right: 10rem;
+}
+
+.items-grid{
+  transition: transform 0.75s ease-out;
+}
+.items-grid.expanded-menu{
+  transform: translateX(8rem);
+}
+
+.items-desc{
+  opacity: 1;
+  visibility: visible;
+  transition: transform 0.75s ease-out, opacity 0.75s ease-out, visibility 0.75s ease-out;
+  min-height: 50vh;
+}
+.items-desc.expanded-menu{
+  min-width: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(20%);
+}
+
+
 /* Weapons */
-.side-nav-link.--weapons {
+.side-nav-link.--weapons > .side-nav-icon{
   background-image: url(./assets/ui-side-weapons-off.png);
 }
-.side-nav-link.--weapons:hover {
+.side-nav-link.--weapons:hover > .side-nav-icon{
   background-image: url(./assets/ui-side-weapons-hover.png);
 }
-.side-nav-link.--weapons.current {
+.side-nav-link.--weapons.current > .side-nav-icon{
   background-image: url(./assets/ui-side-weapons-on.png);
 }
 
 /* Outfits */
-.side-nav-link.--outfits {
+.side-nav-link.--outfits > .side-nav-icon{
   background-image: url(./assets/ui-side-outfits-off.png);
 }
-.side-nav-link.--outfits:hover {
+.side-nav-link.--outfits:hover > .side-nav-icon{
   background-image: url(./assets/ui-side-outfits-hover.png);
 }
-.side-nav-link.--outfits.current {
+.side-nav-link.--outfits.current > .side-nav-icon{
   background-image: url(./assets/ui-side-outfits-on.png);
 }
 
 /* Tools */
-.side-nav-link.--tools {
+.side-nav-link.--tools > .side-nav-icon{
   background-image: url(./assets/ui-side-tools-off.png);
 }
-.side-nav-link.--tools:hover {
+.side-nav-link.--tools:hover > .side-nav-icon{
   background-image: url(./assets/ui-side-tools-hover.png);
 }
-.side-nav-link.--tools.current {
+.side-nav-link.--tools.current > .side-nav-icon{
   background-image: url(./assets/ui-side-tools-on.png);
 }
 
 /* Upgrades */
-.side-nav-link.--upgrades {
+.side-nav-link.--upgrades > .side-nav-icon{
   background-image: url(./assets/ui-side-upgrades-off-.png);
 }
-.side-nav-link.--upgrades:hover {
+.side-nav-link.--upgrades:hover > .side-nav-icon{
   background-image: url(./assets/ui-side-upgrades-hover.png);
 }
-.side-nav-link.--upgrades.current {
+.side-nav-link.--upgrades.current > .side-nav-icon{
   background-image: url(./assets/ui-side-upgrades-on.png);
 }
 
 /* Ammo */
-.side-nav-link.--ammo {
+.side-nav-link.--ammo > .side-nav-icon{
   background-image: url(./assets/ui-side-ammo-off.png);
 }
-.side-nav-link.--ammo:hover {
+.side-nav-link.--ammo:hover > .side-nav-icon{
   background-image: url(./assets/ui-side-ammo-hover.png);
 }
-.side-nav-link.--ammo.current {
+.side-nav-link.--ammo.current > .side-nav-icon{
   background-image: url(./assets/ui-side-ammo-on.png);
 }
 
 /* Travel */
-.side-nav-link.--travel {
+.side-nav-link.--travel > .side-nav-icon{
   background-image: url(./assets/ui-side-travel-off.png);
 }
-.side-nav-link.--travel:hover {
+.side-nav-link.--travel:hover > .side-nav-icon{
   background-image: url(./assets/ui-side-travel-hover.png);
 }
-.side-nav-link.--travel.current {
+.side-nav-link.--travel.current > .side-nav-icon{
   background-image: url(./assets/ui-side-travel-on.png);
 }
 
