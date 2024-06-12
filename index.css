@@ -160,20 +160,15 @@ main {
 
 .side-nav {
   padding-right: 5rem;
-  transition: padding 0.75s ease-out;
-  outline: 1px solid white;
-}
-.side-nav-menu {
   padding-left: 1rem;
+  transition: padding 0.3s ease-out;
+  height: 100%;
 }
-.side-nav-links {
-  display: flex;
-  flex-direction: column;
-  width: max-content;
-  padding-inline: 0.3em;
+
+.side-nav-menu{
   position: relative;
 }
-.side-nav-links::before {
+.side-nav-menu::before {
   content: '';
   position: absolute;
   left: 0;
@@ -187,26 +182,22 @@ main {
   height: 130%;
 }
 
+.side-nav-links {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  padding-inline: 0.3em;
+  position: relative;
+}
+
 .side-nav-link{
   display: flex;
   align-items: center;
   position: relative;
 }
-
 .side-nav-link:not(:first-child) {
   margin-top: -0.3rem;
 }
-
-.side-nav-icon {
-  background-position: center;
-  background-size: 100%;
-  width: 3rem;
-  height: 3rem;
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
-}
-
 .side-nav-link.new::before {
   content: '';
   background-image: url('./assets/badge-new-small-off.png');
@@ -220,6 +211,16 @@ main {
   height: 1.25rem;
 }
 
+.side-nav-icon {
+  background-position: center;
+  background-size: 100%;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
 .side-nav-link > span{
   position: absolute;
   visibility: hidden;
@@ -230,35 +231,21 @@ main {
   white-space: nowrap;
   cursor: pointer;
   color: #9da8a6;
-  transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out, transform 0.75s ease-in-out;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Hover animation */
 .side-nav-link:hover > span{
   color: #fffdd2;
 }
+
+/* Hover animation */
 .side-nav.expanded-menu .side-nav-link > span{
   opacity: 1;
   visibility:visible;
   transform: translate(0);
 }
-
-.side-nav.expanded-menu{
-  padding-right: 10rem;
-}
-
-.items-grid{
-  transition: transform 0.75s ease-out;
-}
 .items-grid.expanded-menu{
-  transform: translateX(8rem);
-}
-
-.items-desc{
-  opacity: 1;
-  visibility: visible;
-  transition: transform 0.75s ease-out, opacity 0.75s ease-out, visibility 0.75s ease-out;
-  min-height: 50vh;
+  transform: translateX(5rem);
 }
 .items-desc.expanded-menu{
   min-width: 0;
@@ -336,6 +323,7 @@ main {
 
 .items-grid {
   max-width: 40%;
+  transition: transform 0.3s ease-out;
 }
 .grid-main {
   display: flex;
@@ -391,6 +379,9 @@ main {
   bottom: 0;
   background: url(./assets/badge-new-big.png) no-repeat top right / 2.25rem;
 }
+.grid-item > img {
+  max-width: 7rem;
+}
 
 /* 
 .grid-item:hover::before,
@@ -437,11 +428,12 @@ main {
   }
 } */
 
-.grid-item > img {
-  max-width: 7rem;
-}
 .items-desc {
   min-width: 40%;
+  opacity: 1;
+  visibility: visible;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
+  min-height: 50vh;
 }
 
 .desc-main {
