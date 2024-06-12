@@ -8,6 +8,9 @@
 ul {
   list-style: none;
 }
+*:focus{
+  outline: none;
+}
 
 html {
   font-size: 10px;
@@ -97,8 +100,10 @@ main {
   cursor: pointer;
   position: relative;
 }
-.nav-link:hover {
+.nav-link:hover,
+.nav-link:focus {
   color: #fffdd2;
+  outline: none;
 }
 
 .nav-link.new::before {
@@ -234,7 +239,8 @@ main {
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.side-nav-link:hover > span{
+.side-nav-link:hover > span,
+.side-nav-link:focus > span{
   color: #fffdd2;
 }
 
@@ -259,7 +265,8 @@ main {
 .side-nav-link.--weapons > .side-nav-icon{
   background-image: url(./assets/ui-side-weapons-off.png);
 }
-.side-nav-link.--weapons:hover > .side-nav-icon{
+.side-nav-link.--weapons:hover > .side-nav-icon,
+.side-nav-link.--weapons:focus > .side-nav-icon{
   background-image: url(./assets/ui-side-weapons-hover.png);
 }
 .side-nav-link.--weapons.current > .side-nav-icon{
@@ -270,7 +277,8 @@ main {
 .side-nav-link.--outfits > .side-nav-icon{
   background-image: url(./assets/ui-side-outfits-off.png);
 }
-.side-nav-link.--outfits:hover > .side-nav-icon{
+.side-nav-link.--outfits:hover > .side-nav-icon ,
+.side-nav-link.--outfits:focus > .side-nav-icon {
   background-image: url(./assets/ui-side-outfits-hover.png);
 }
 .side-nav-link.--outfits.current > .side-nav-icon{
@@ -281,7 +289,8 @@ main {
 .side-nav-link.--tools > .side-nav-icon{
   background-image: url(./assets/ui-side-tools-off.png);
 }
-.side-nav-link.--tools:hover > .side-nav-icon{
+.side-nav-link.--tools:hover > .side-nav-icon,
+.side-nav-link.--tools:focus > .side-nav-icon{
   background-image: url(./assets/ui-side-tools-hover.png);
 }
 .side-nav-link.--tools.current > .side-nav-icon{
@@ -292,7 +301,8 @@ main {
 .side-nav-link.--upgrades > .side-nav-icon{
   background-image: url(./assets/ui-side-upgrades-off-.png);
 }
-.side-nav-link.--upgrades:hover > .side-nav-icon{
+.side-nav-link.--upgrades:hover > .side-nav-icon,
+.side-nav-link.--upgrades:focus > .side-nav-icon{
   background-image: url(./assets/ui-side-upgrades-hover.png);
 }
 .side-nav-link.--upgrades.current > .side-nav-icon{
@@ -303,7 +313,8 @@ main {
 .side-nav-link.--ammo > .side-nav-icon{
   background-image: url(./assets/ui-side-ammo-off.png);
 }
-.side-nav-link.--ammo:hover > .side-nav-icon{
+.side-nav-link.--ammo:hover > .side-nav-icon,
+.side-nav-link.--ammo:focus > .side-nav-icon{
   background-image: url(./assets/ui-side-ammo-hover.png);
 }
 .side-nav-link.--ammo.current > .side-nav-icon{
@@ -314,7 +325,8 @@ main {
 .side-nav-link.--travel > .side-nav-icon{
   background-image: url(./assets/ui-side-travel-off.png);
 }
-.side-nav-link.--travel:hover > .side-nav-icon{
+.side-nav-link.--travel:hover > .side-nav-icon,
+.side-nav-link.--travel:focus > .side-nav-icon{
   background-image: url(./assets/ui-side-travel-hover.png);
 }
 .side-nav-link.--travel.current > .side-nav-icon{
@@ -340,11 +352,13 @@ main {
 
 /* Hover/Focus logic */
 .grid-item:hover,
+.grid-item:focus,
 .grid-item.current {
   background-image: url(./assets/ui-grid-big-on.png);
 }
 
 .grid-item:hover::before,
+.grid-item:focus::before,
 .grid-item.current::before {
   content: '';
   position: absolute;
