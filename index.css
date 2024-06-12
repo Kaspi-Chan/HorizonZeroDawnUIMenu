@@ -114,7 +114,7 @@ main {
 .nav-link.new.current::before {
   background-image: url(./assets/badge-new-small-on.png);
 }
-.nav-link.new.current::after {
+.nav-link.current::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -128,10 +128,10 @@ main {
 .nav-link.current > span{
   color: #dcd284;
   display: inline-block;
-  animation: translateUp ease 0.5s;
+  animation: translateUp ease 0.3s;
 }
 .nav-link.current::after{
-  animation: translateDown ease 0.5s;
+  animation: translateDown ease 0.3s;
 }
 
 @keyframes translateUp {
@@ -139,7 +139,7 @@ main {
     transform: translateY(0);
   }
   50%{
-    transform: translateY(-30%);
+    transform: translateY(-20%);
   }
 }
 
@@ -148,7 +148,7 @@ main {
     transform: translateY(0);
   }
   50%{
-    transform: translateY(30%);
+    transform: translateY(20%);
   }
 }
 

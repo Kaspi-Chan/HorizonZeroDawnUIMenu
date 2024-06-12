@@ -2,6 +2,7 @@ const sideNav = document.querySelector('.side-nav');
 const sideNavIconsCont = document.querySelector('.side-nav-links')
 const itemDesc = document.querySelector('.items-desc')
 const itemsGrid = document.querySelector('.items-grid')
+const headerNav = document.querySelector('.nav-links')
 
 const getLongestLiElementWidth = (elementsArr) => {
   const longestLink = elementsArr.reduce((acc, current) => {
@@ -10,6 +11,23 @@ const getLongestLiElementWidth = (elementsArr) => {
 
   return longestLink.offsetWidth;
 }
+
+const switchCurrentBtn = (event) => {
+  const clickedBtn = event.currentTarget;
+  const siblingBtns = Array.from(clickedBtn.parentElement.children);
+  siblingBtns.forEach((button) => {
+    button.classList.remove('current');
+  })
+  clickedBtn.classList.add('current');
+}
+
+Array.from(sideNavIconsCont.children).forEach((iconBtn) => {
+  iconBtn.addEventListener('click', switchCurrentBtn)
+})
+
+Array.from(headerNav.children).forEach((iconBtn) => {
+  iconBtn.addEventListener('click', switchCurrentBtn)
+})
 
 sideNavIconsCont.addEventListener('mouseenter', () => {
   const menuLinks = Array.from(sideNavIconsCont.querySelectorAll('.side-nav-link > span'))
@@ -27,4 +45,3 @@ sideNav.addEventListener('mouseleave', () => {
   itemsGrid.classList.remove('expanded-menu')
   sideNav.classList.remove('expanded-menu')
 })
-
