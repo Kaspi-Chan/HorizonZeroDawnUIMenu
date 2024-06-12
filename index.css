@@ -417,6 +417,19 @@ main{
   position: relative;
 }
 
+.button-footer::after{
+  content: '';
+  position: absolute;
+  left: -25%;
+  z-index: 0;
+  filter: blur(25px);
+  width: 150%;
+  height: 200%;
+  top: 50%;
+  background: rgba(255, 255, 255, 0.0);
+  background: radial-gradient(at center top, rgba(0, 0, 0, 0.4), rgba(1, 1, 1, 1));
+}
+
 .controller-input-container{
   display: flex;
   align-items: center;
@@ -424,23 +437,7 @@ main{
   position: relative;
   z-index: 1;
 }
-.controller-input-container::before{
-  content: '';
-  position: absolute;
-  width: 100vw;
-  height: 200%;
-  bottom: -100%;
-  z-index: -1;;
-  filter: blur(20px);
-}
-.controller-input-container:first-child::before{
-  left: -50%;
-  background: linear-gradient(200deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.5) 100%)
-}
-.controller-input-container:last-child::before{
-  right: -50%;
-  background: linear-gradient(155deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.5) 100%)
-}
+
 .controller-input-container > span{
   margin-bottom: 0.1rem;
 }
