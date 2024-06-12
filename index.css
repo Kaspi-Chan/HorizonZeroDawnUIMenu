@@ -124,8 +124,31 @@ main {
     3.5rem;
 }
 
-.nav-link.current {
+.nav-link.current > span{
   color: #dcd284;
+  display: inline-block;
+  animation: translateUp ease 0.5s;
+}
+.nav-link.current::after{
+  animation: translateDown ease 0.5s;
+}
+
+@keyframes translateUp {
+  0%, 100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-30%);
+  }
+}
+
+@keyframes translateDown {
+  0%, 100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(30%);
+  }
 }
 
 .main-content {
