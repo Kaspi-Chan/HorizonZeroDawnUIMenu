@@ -1,105 +1,139 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
-  <link href="https://db.onlinewebfonts.com/c/1c51a39752ed2ad0fe26ee3d8073ba69?family=Oita+W01+Cond+Medium" rel="stylesheet">
-  <link rel="stylesheet" href="./omar-webfont/style.css">
-  <script src="index.js"></script>
-  <title>Horizon Zero Dawn Menu</title>
-</head>
-<body>
-  <main>
-    <div class="container">
-      <header class="nav-main">
-        <nav class="nav-menu">
-        <img src="./assets/ui-l1-messy.png" alt="L1 ps controller input button">
-          <ul class="nav-links">
-            <li class="nav-link new">Skills</li>
-            <li class="nav-link new">Inventory</li>
-            <li class="nav-link current new"><span>Crafting</span></li>
-            <li class="nav-link">Map</li>
-            <li class="nav-link">Quests</li>
-            <li class="nav-link">Notebook</li>
-          </ul>
-        <img src="./assets/ui-r1-messy.png" alt="L2 ps controller input button">
-        </nav>
-      </header>
-      <div class="main-content">
-        <div class="side-nav">
-          <nav class="side-nav-menu">
-            <ul class="side-nav-links">
-              <li class="side-nav-link --weapons new"></li>
-              <li class="side-nav-link --outfits new"></li>
-              <li class="side-nav-link --tools"></li>
-              <li class="side-nav-link --upgrades"></li>
-              <li class="side-nav-link --ammo current new"></li>
-              <li class="side-nav-link --travel"></li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://db.onlinewebfonts.com/c/1c51a39752ed2ad0fe26ee3d8073ba69?family=Oita+W01+Cond+Medium"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./omar-webfont/style.css" />
+    <script src="index.js"></script>
+    <title>Horizon Zero Dawn Menu</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <header class="nav-main">
+          <nav class="nav-menu">
+            <img
+              src="./assets/ui-l1-messy.png"
+              alt="L1 ps controller input button"
+            />
+            <ul class="nav-links">
+              <li class="nav-link new">Skills</li>
+              <li class="nav-link new">Inventory</li>
+              <li class="nav-link current new"><span>Crafting</span></li>
+              <li class="nav-link">Map</li>
+              <li class="nav-link">Quests</li>
+              <li class="nav-link">Notebook</li>
             </ul>
+            <img
+              src="./assets/ui-r1-messy.png"
+              alt="L2 ps controller input button"
+            />
           </nav>
-        </div>
-        <div class="items-grid">
-          <div class="grid-main">
-            <div class="grid-item current new"><img src="./assets/hunter-bow.png" alt=""></div>
-            <div class="grid-item new"><img src="./assets/precision-bow.png" alt=""></div>
-            <div class="grid-item new"><img src="./assets/war-bow.png" alt=""></div>
-            <div class="grid-item"><img src="./assets/slingshot.png" alt=""></div>
-            <div class="grid-item new"><img src="./assets/tiedown.png" alt=""></div>
-            <div class="grid-item new"><img src="./assets/tech.png" alt=""></div>
-            <div class="grid-item"><img src="./assets/trapwire.png" alt=""></div>
-            <div class="grid-item new"><img src="./assets/slingshot.png" alt=""></div>
-          </div>
-        </div>
-        <div class="items-desc">
-          <div class="desc-main">
-            <h1 class="desc-heading">Hunter Bow Arrow Packs</h1>
-            <div class="desc-body">
-              <p class="desc-info">These ammo packs are suited for: </p>
-              <ul class="suited-list">
-                <li class="suited-item">
-                  <span class="suited-item-name">Hunter Bow</span>
-                  <div class="suited-item-owned">
-                    <span>(</span>
-                    <img src="./assets/ui-owned-icon.png" alt="Icon of a small sachet">
-                    <span>0</span>
-                    <span>)</span>
-                  </div>
-                </li>
-                <li class="suited-item">
-                  <span class="suited-item-name">Carja Hunter Bow</span>
-                  <div class="suited-item-owned">
-                    <span>(</span>
-                    <img src="./assets/ui-owned-icon.png" alt="Icon of a small sachet">
-                    <span>0</span>
-                    <span>)</span>
-                  </div>
-                </li>
-                <li class="suited-item">
-                  <span class="suited-item-name">Shadow Hunter Bow</span>
-                  <div class="suited-item-owned">
-                    <span>(</span>
-                    <img src="./assets/ui-owned-icon.png" alt="Icon of a small sachet">
-                    <span>1</span>
-                    <span>)</span>
-                  </div>
-                </li>
+        </header>
+        <div class="main-content">
+          <div class="side-nav">
+            <nav class="side-nav-menu">
+              <ul class="side-nav-links">
+                <li class="side-nav-link --weapons new"></li>
+                <li class="side-nav-link --outfits new"></li>
+                <li class="side-nav-link --tools"></li>
+                <li class="side-nav-link --upgrades"></li>
+                <li class="side-nav-link --ammo current new"></li>
+                <li class="side-nav-link --travel"></li>
               </ul>
+            </nav>
+          </div>
+          <div class="items-grid">
+            <div class="grid-main">
+              <div class="grid-item current new">
+                <img src="./assets/hunter-bow.png" alt="" />
+              </div>
+              <div class="grid-item new">
+                <img src="./assets/precision-bow.png" alt="" />
+              </div>
+              <div class="grid-item new">
+                <img src="./assets/war-bow.png" alt="" />
+              </div>
+              <div class="grid-item">
+                <img src="./assets/slingshot.png" alt="" />
+              </div>
+              <div class="grid-item new">
+                <img src="./assets/tiedown.png" alt="" />
+              </div>
+              <div class="grid-item new">
+                <img src="./assets/tech.png" alt="" />
+              </div>
+              <div class="grid-item">
+                <img src="./assets/trapwire.png" alt="" />
+              </div>
+              <div class="grid-item new">
+                <img src="./assets/slingshot.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="items-desc">
+            <div class="desc-main">
+              <h1 class="desc-heading">Hunter Bow Arrow Packs</h1>
+              <div class="desc-body">
+                <p class="desc-info">These ammo packs are suited for:</p>
+                <ul class="suited-list">
+                  <li class="suited-item">
+                    <span class="suited-item-name">Hunter Bow</span>
+                    <div class="suited-item-owned">
+                      <span>(</span>
+                      <img
+                        src="./assets/ui-owned-icon.png"
+                        alt="Icon of a small sachet"
+                      />
+                      <span>0</span>
+                      <span>)</span>
+                    </div>
+                  </li>
+                  <li class="suited-item">
+                    <span class="suited-item-name">Carja Hunter Bow</span>
+                    <div class="suited-item-owned">
+                      <span>(</span>
+                      <img
+                        src="./assets/ui-owned-icon.png"
+                        alt="Icon of a small sachet"
+                      />
+                      <span>0</span>
+                      <span>)</span>
+                    </div>
+                  </li>
+                  <li class="suited-item">
+                    <span class="suited-item-name">Shadow Hunter Bow</span>
+                    <div class="suited-item-owned">
+                      <span>(</span>
+                      <img
+                        src="./assets/ui-owned-icon.png"
+                        alt="Icon of a small sachet"
+                      />
+                      <span>1</span>
+                      <span>)</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
+        <footer class="button-footer">
+          <div class="controller-input-container">
+            <img src="./assets/ui-o-messy.png" alt="ps5 controller glyph O" />
+            <span>Back</span>
+          </div>
+          <div class="controller-input-container">
+            <img src="./assets/ui-x-messy.png" alt="ps5 controller glyph X" />
+            <span>Select</span>
+          </div>
+        </footer>
       </div>
-      <footer class="button-footer">
-        <div class="controller-input-container">
-          <img src="./assets/ui-o-messy.png" alt="ps5 controller glyph O">
-          <span>Back</span>
-        </div>
-        <div class="controller-input-container">
-          <img src="./assets/ui-x-messy.png" alt="ps5 controller glyph X">
-          <span>Select</span>
-        </div>
-      </footer>
-    </div>
-  </main>
-</body>
+    </main>
+  </body>
 </html>
