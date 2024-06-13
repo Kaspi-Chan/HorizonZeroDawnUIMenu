@@ -508,6 +508,9 @@ main {
   gap: 0.1rem;
   color: #7b7a76;
 }
+.suited-item-checked{
+  max-width: 1.25rem;
+}
 
 .button-footer {
   display: flex;

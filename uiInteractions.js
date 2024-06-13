@@ -38,6 +38,12 @@ const collapseSideNav = () => {
   sideNav.classList.remove('expanded-menu')
 }
 
+const initiallyFocusMenuElement = () => {
+  const currentElement = headerNav.querySelector('.current')
+  console.log(currentElement)
+  currentElement.focus(); 
+}
+
 Array.from(sideNavIconsCont.children).forEach((iconBtn) => {
   iconBtn.addEventListener('click', switchCurrentBtn)
 })
@@ -58,3 +64,5 @@ interactionManager.keyboard.on({
   },
   type: ['press'],
 })
+
+document.addEventListener("DOMContentLoaded", initiallyFocusMenuElement);

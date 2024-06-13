@@ -16,7 +16,7 @@ function changeFocus(move, items) {
 }
 
 interactionManager.keyboard.on({
-  keys: ['ARROW_RIGHT'],
+  keys: ['E'],
   callback: (event) => {
     changeFocus(1, headerNavItems);
     event.preventDefault();
@@ -25,7 +25,7 @@ interactionManager.keyboard.on({
 })  
 
 interactionManager.keyboard.on({
-  keys: ['ARROW_LEFT'],
+  keys: ['Q'],
   callback: (event) => {
     changeFocus(-1, headerNavItems);
     event.preventDefault();
