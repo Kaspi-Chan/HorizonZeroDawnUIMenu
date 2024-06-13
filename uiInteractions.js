@@ -1,3 +1,4 @@
+const mainContainer = document.querySelector('.main-content');
 const sideNav = document.querySelector('.side-nav');
 const sideNavIconsCont = document.querySelector('.side-nav-links')
 const itemDesc = document.querySelector('.items-desc')
@@ -22,6 +23,7 @@ const switchCurrentBtn = (event) => {
 }
 
 const expandSideNav = () => {
+  if(mainContainer.classList.contains('initial')) return;
   const menuLinks = Array.from(sideNavIconsCont.querySelectorAll('.side-nav-link > span'))
   const longestElementWidth = getLongestLiElementWidth(menuLinks)
 
@@ -32,6 +34,7 @@ const expandSideNav = () => {
 }
 
 const collapseSideNav = () => {
+  if(mainContainer.classList.contains('initial')) return;
   sideNav.style.paddingRight = '5rem';
   itemDesc.classList.remove('expanded-menu')
   itemsGrid.classList.remove('expanded-menu')
@@ -40,12 +43,18 @@ const collapseSideNav = () => {
 
 const initiallyFocusMenuElement = () => {
   const currentElement = headerNav.querySelector('.current')
-  console.log(currentElement)
   currentElement.focus(); 
 }
 
+const enterInnerMenu = () => {
+  mainContainer.classList.remove('initial')
+}
+
 Array.from(sideNavIconsCont.children).forEach((iconBtn) => {
-  iconBtn.addEventListener('click', switchCurrentBtn)
+  iconBtn.addEventListener('click', (event) => {
+    switchCurrentBtn(event)
+    enterInnerMenu();
+  })
 })
 
 Array.from(headerNav.children).forEach((iconBtn) => {
@@ -61,8 +70,20 @@ interactionManager.keyboard.on({
   keys: ['Enter'],
   callback: (event) => {
     switchCurrentBtn(event) 
+    if(event.target.parentElement.classList.contains('side-nav-links')) enterInnerMenu();
   },
   type: ['press'],
 })
 
-document.addEventListener("DOMContentLoaded", initiallyFocusMenuElement);
+interactionManager.keyboard.on({
+  keys: ['F'],
+  callback: (event) => {
+    switchCurrentBtn(event) 
+    if(event.target.parentElement.classList.contains('side-nav-links')) enterInnerMenu();
+  },
+  type: ['press'],
+})
+
+document.addEventListener("DOMContentLoaded", () => {
+  initiallyFocusMenuElement();
+});

@@ -15,29 +15,27 @@ function changeFocus(move, items) {
   items[nextIndex].focus();
 }
 
+
 interactionManager.keyboard.on({
   keys: ['E'],
-  callback: (event) => {
+  callback: () => {
     changeFocus(1, headerNavItems);
-    event.preventDefault();
   },
   type: ['press']
 })  
 
 interactionManager.keyboard.on({
   keys: ['Q'],
-  callback: (event) => {
+  callback: () => {
     changeFocus(-1, headerNavItems);
-    event.preventDefault();
   },
   type: ['press']
 })  
 
 interactionManager.keyboard.on({
   keys: ['ARROW_DOWN'],
-  callback: (event) => {
+  callback: () => {
     changeFocus(1, sideNavItems);
-    event.preventDefault();
   },
   type: ['press']
 })  
@@ -46,7 +44,14 @@ interactionManager.keyboard.on({
   keys: ['ARROW_UP'],
   callback: (event) => {
     changeFocus(-1, sideNavItems);
-    event.preventDefault();
+  },
+  type: ['press']
+})  
+
+interactionManager.keyboard.on({
+  keys: ['ESC'],
+  callback: () => {
+    mainContainer.classList.add('initial')
   },
   type: ['press']
 })  
