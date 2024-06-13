@@ -15,7 +15,6 @@ function changeFocus(move, items) {
   items[nextIndex].focus();
 }
 
-
 interactionManager.keyboard.on({
   keys: ['E'],
   callback: () => {
@@ -51,6 +50,7 @@ interactionManager.keyboard.on({
 interactionManager.keyboard.on({
   keys: ['ESC'],
   callback: () => {
+    collapseSideNav()
     mainContainer.classList.add('initial')
   },
   type: ['press']
