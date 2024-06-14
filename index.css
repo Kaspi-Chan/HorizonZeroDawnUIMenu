@@ -180,6 +180,8 @@ main {
   right: 0;
   background: linear-gradient(
     180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, .85) 30%,
     rgba(0, 0, 0, 0.85) 65%,
     rgba(0, 0, 0, 0) 100%
   );
@@ -204,7 +206,7 @@ main {
 .side-nav-link:not(:first-child) {
   margin-top: -0.3rem;
 }
-.side-nav-link.new::before {
+.side-nav-link.new > .side-nav-icon::before {
   content: '';
   background-image: url('./assets/badge-new-small-off.png');
   background-size: 100%;
@@ -216,9 +218,9 @@ main {
   width: 1.25rem;
   height: 1.25rem;
 }
-.main-content.initial .side-nav-link.new.current::before,
-.main-content.initial .side-nav-link.new:hover::before,
-.main-content.initial .side-nav-link.new:focus::before{
+.main-content.initial .side-nav-link.new.current .side-nav-icon::before,
+.main-content.initial .side-nav-link.new:hover .side-nav-icon::before,
+.main-content.initial .side-nav-link.new:focus .side-nav-icon::before{
   background-image: url('./assets/badge-new-small-on.png');
 }
 
@@ -230,6 +232,19 @@ main {
   cursor: pointer;
   position: relative;
   z-index: 2;
+}
+
+.main-content.initial .side-nav-link:hover .side-nav-icon,
+.main-content.initial .side-nav-link:focus .side-nav-icon{
+  animation: slideLeft 0.3s linear alternate;
+}
+@keyframes slideLeft {
+  0%, 100%{
+    transform: translateX(0);
+  }
+  50%{
+    transform: translateX(-0.3rem);
+  }
 }
 
 .side-nav-link > span{
