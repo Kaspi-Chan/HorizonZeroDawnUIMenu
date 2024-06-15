@@ -440,54 +440,9 @@ main {
   bottom: 0;
   background: url(./assets/badge-new-big.png) no-repeat top right / 2.25rem;
 }
-.grid-item > img {
+.grid-item img {
   max-width: 7rem;
 }
-
-/* 
-.grid-item:hover::before,
-.grid-item.current::before,
-.grid-item:hover::after,
-.grid-item.current::after{
-  content: '';
-  position: absolute;
-  background-size: 100%;
-  background-position: center;
-  width: 3.5rem;
-  height: 3.5rem;
-}
-
-.grid-item:hover::before,
-.grid-item.current::before{
-  background-image: url(/assets/cell-highlight-left.png);
-  animation: breathe-left .75s ease-in-out infinite alternate;
-  top: 0;
-  left: 0;
-}
-@keyframes breathe-left{
-  from{
-    transform: translate(-20%, -10%);
-  }
-  to{
-    transform: translate(-30%, -20%);
-  }
-}
-
-.grid-item:hover::after,
-.grid-item.current::after{
-  background-image: url(/assets/cell-highlight-right.png);
-  animation: breathe-right .75s ease-in-out infinite alternate;
-  bottom: 0;
-  right: 0;
-}
-@keyframes breathe-right{
-  from{
-    transform: translate(20%, 10%);
-  }
-  to{
-    transform: translate(30%, 20%);
-  }
-} */
 
 .items-desc {
   min-width: 40%;
@@ -601,4 +556,11 @@ main {
 
 .controller-input-container > span:hover {
   color: #fffdd2;
+}
+
+
+@supports (background-image: url('./assets/background.webp')) {
+  main {
+    background-image: url('./assets/background.webp');
+  }
 }
