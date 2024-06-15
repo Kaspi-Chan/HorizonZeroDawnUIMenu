@@ -588,4 +588,9 @@ main {
 
 .controller-input-container > span {
   margin-bottom: 0.1rem;
+  cursor: pointer;
+}
+
+.controller-input-container > span:hover{
+  color: #fffdd2;
 }

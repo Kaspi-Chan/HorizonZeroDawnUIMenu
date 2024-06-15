@@ -7,6 +7,8 @@ const gridItems =  itemsGrid.querySelectorAll('.grid-item')
 const headerNav = document.querySelector('.nav-links')
 const headerNavItems = headerNav.querySelectorAll('li');
 const sideNavItems = sideNavIconsCont.querySelectorAll('li');
+const footerBackButton = document.querySelector('.controller-input-container.--back > span');
+const footerSelectButton = document.querySelector('.controller-input-container.--select > span');
 let isInInitial = mainContainer.classList.contains('initial');
 let lastFocusedItem;
 
@@ -106,6 +108,8 @@ Array.from(gridItems).forEach((gridItem) => {
 itemsGrid.addEventListener('click', enterInnerMenu)
 sideNavIconsCont.addEventListener('mouseenter', expandSideNav)
 sideNav.addEventListener('mouseleave', collapseSideNav)
+footerBackButton.addEventListener('click', exitInnerMenu)
+footerSelectButton.addEventListener('click', enterInnerMenu)
 
 document.addEventListener("DOMContentLoaded", () => {
   initiallyFocusHeaderElement();
