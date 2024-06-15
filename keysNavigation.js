@@ -46,6 +46,26 @@ function changeHorizontalFocus(move, items) {
   lastFocusedItem = items[nextIndex];
 }
 
+function changeVerticalFocus(move, items){
+  const itemsPerRow = 4;
+  const totalItems = items.length;
+  const currentIndex = Array.from(items).indexOf(document.activeElement);
+  const currentColumn = currentIndex % itemsPerRow;
+  const totalRows = Math.ceil(totalItems / itemsPerRow);
+
+  // Calculate the new row, incorporating wrapping
+  const currentRow = Math.floor(currentIndex / itemsPerRow);
+  let newRow = (currentRow + move + totalRows) % totalRows;
+
+  const newIndex = newRow * itemsPerRow + currentColumn;
+
+  // Check if the new index is within the bounds of total items and the column exists in the new row
+  if (newIndex < totalItems && Math.floor(newIndex / itemsPerRow) === newRow) {
+    items[newIndex].focus();
+    lastFocusedItem = items[newIndex];
+  } 
+}
+
 function getItemsPerRow(items) {
   let rowTop = items[0].offsetTop;
   let count = 0;
@@ -62,6 +82,7 @@ function getItemsPerRow(items) {
 interactionManager.keyboard.on({
   keys: ['E'],//L1
   callback: () => {
+    if(!mainContainer.classList.contains('initial')) mainContainer.classList.add('initial')
     Array.from(headerNavItems).find((item) => item.classList.contains('current')).focus();
     changeFocus(1, headerNavItems);
   },
@@ -71,6 +92,7 @@ interactionManager.keyboard.on({
 interactionManager.keyboard.on({
   keys: ['Q'], //R1
   callback: () => {
+    if(!mainContainer.classList.contains('initial')) mainContainer.classList.add('initial')
     Array.from(headerNavItems).find((item) => item.classList.contains('current')).focus();
     changeFocus(-1, headerNavItems);
   },
@@ -105,7 +127,7 @@ interactionManager.keyboard.on({
   keys: ['ARROW_DOWN'],
   callback: () => {
     if(!mainContainer.classList.contains('initial')){
-      changeFocus(4, gridItems);
+      changeVerticalFocus(1, gridItems);
       return
     } 
     sideNavIconsCont.querySelector('.current').focus()
@@ -118,7 +140,7 @@ interactionManager.keyboard.on({
   keys: ['ARROW_UP'],
   callback: () => {
     if(!mainContainer.classList.contains('initial')){
-      changeFocus(-4, gridItems);
+      changeVerticalFocus(-1, gridItems);
       return
     } 
     sideNavIconsCont.querySelector('.current').focus()
@@ -140,8 +162,9 @@ interactionManager.keyboard.on({
 interactionManager.keyboard.on({
   keys: ['Enter'],
   callback: (event) => {
-    switchCurrentBtn(event) 
-    if(event.target.parentElement.classList.contains('side-nav-links')) enterInnerMenu();
+    if(event.target.parentElement.classList.contains('side-nav-links') || event.target.parentElement.classList.contains('nav-links')){
+      enterInnerMenu();
+    }
   },
   type: ['press'],
 })
@@ -149,8 +172,9 @@ interactionManager.keyboard.on({
 interactionManager.keyboard.on({
   keys: ['F'], //X playstation button
   callback: (event) => {
-    switchCurrentBtn(event) 
-    if(event.target.parentElement.classList.contains('side-nav-links')) enterInnerMenu();
+    if(event.target.parentElement.classList.contains('side-nav-links')){
+      enterInnerMenu();
+    }
   },
   type: ['press'],
 })
