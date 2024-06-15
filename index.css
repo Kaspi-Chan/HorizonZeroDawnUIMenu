@@ -563,4 +563,18 @@ main {
   main {
     background-image: url('./assets/background.webp');
   }
+  .grid-item {
+    background-image: url(./assets/ui-grid-big-off.webp);
+  }
+  /* Hover/Focus logic */
+  .grid-item:focus,
+  .grid-item.current {
+    background-image: url(./assets/ui-grid-big-on.webp);
+  }
+  .desc-main {
+    background-image: url(./assets/ui-frame-panel-med.webp);
+  }
+  .desc-heading::after {
+    background-image: url(./assets/ui-header-bg.webp);
+  }
 }
