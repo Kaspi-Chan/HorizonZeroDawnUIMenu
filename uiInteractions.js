@@ -4,6 +4,8 @@ const sideNavIconsCont = document.querySelector('.side-nav-links')
 const itemDesc = document.querySelector('.items-desc')
 const itemsGrid = document.querySelector('.items-grid')
 const headerNav = document.querySelector('.nav-links')
+const gridItems =  itemsGrid.querySelectorAll('.grid-item')
+let lastFocusedItem;
 
 const getLongestLiElementWidth = (elementsArr) => {
   const longestLink = elementsArr.reduce((acc, current) => {
@@ -48,6 +50,15 @@ const initiallyFocusMenuElement = () => {
 
 const enterInnerMenu = () => {
   mainContainer.classList.remove('initial')
+  focusLastGridItem()
+}
+
+function focusLastGridItem(){
+  if(!lastFocusedItem){
+    gridItems[0].focus()
+  }else{
+    lastFocusedItem.focus()
+  }
 }
 
 Array.from(sideNavIconsCont.children).forEach((iconBtn) => {
@@ -65,24 +76,6 @@ sideNavIconsCont.addEventListener('mouseenter', expandSideNav)
 sideNavIconsCont.addEventListener('focusin', expandSideNav)
 sideNav.addEventListener('mouseleave', collapseSideNav)
 sideNav.addEventListener('focusout', collapseSideNav)   
-
-interactionManager.keyboard.on({
-  keys: ['Enter'],
-  callback: (event) => {
-    switchCurrentBtn(event) 
-    if(event.target.parentElement.classList.contains('side-nav-links')) enterInnerMenu();
-  },
-  type: ['press'],
-})
-
-interactionManager.keyboard.on({
-  keys: ['F'],
-  callback: (event) => {
-    switchCurrentBtn(event) 
-    if(event.target.parentElement.classList.contains('side-nav-links')) enterInnerMenu();
-  },
-  type: ['press'],
-})
 
 document.addEventListener("DOMContentLoaded", () => {
   initiallyFocusMenuElement();
