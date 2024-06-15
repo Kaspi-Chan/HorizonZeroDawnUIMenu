@@ -7,7 +7,18 @@ const headerNav = document.querySelector('.nav-links')
 const gridItems =  itemsGrid.querySelectorAll('.grid-item')
 const headerNavItems = headerNav.querySelectorAll('li');
 const sideNavItems = sideNavIconsCont.querySelectorAll('li');
+let isInInitial = mainContainer.classList.contains('initial');
 let lastFocusedItem;
+
+function setInitial(state) {
+  if (state) {
+    mainContainer.classList.add('initial');
+    isInInitial = true;
+  } else {
+    mainContainer.classList.remove('initial');
+    isInInitial = false;
+  }
+}
 
 const getLongestLiElementWidth = (elementsArr) => {
   const longestLink = elementsArr.reduce((acc, current) => {
@@ -27,7 +38,7 @@ const switchCurrentBtn = (event) => {
 }
 
 const expandSideNav = () => {
-  if(mainContainer.classList.contains('initial')) return;
+  if(isInInitial) return;
   const menuLinks = Array.from(sideNavIconsCont.querySelectorAll('.side-nav-link > span'))
   const longestElementWidth = getLongestLiElementWidth(menuLinks)
 
@@ -38,7 +49,7 @@ const expandSideNav = () => {
 }
 
 const collapseSideNav = () => {
-  if(mainContainer.classList.contains('initial')) return;
+  if(isInInitial) return;
   sideNav.style.paddingRight = '5rem';
   itemDesc.classList.remove('expanded-menu')
   itemsGrid.classList.remove('expanded-menu')
@@ -51,13 +62,13 @@ const initiallyFocusHeaderElement = () => {
 }
 
 const enterInnerMenu = () => {
-  mainContainer.classList.remove('initial')
+  setInitial(false)
   Array.from(gridItems).forEach((gridItem) => gridItem.setAttribute('tabindex', '0'))
   focusLastGridItem()
 }
 
 const exitInnerMenu = () => {
-  mainContainer.classList.add('initial')
+  setInitial(true)
   Array.from(gridItems).forEach((gridItem) => gridItem.removeAttribute('tabindex'))
   sideNavIconsCont.querySelector('.current').focus()
 }
@@ -86,7 +97,7 @@ Array.from(headerNav.children).forEach((navLink) => {
 
 Array.from(gridItems).forEach((gridItem) => {
   gridItem.addEventListener('mouseenter', (event) => {
-    if(mainContainer.classList.contains('initial')) return
+    if(isInInitial) return
     event.currentTarget.focus()
     lastFocusedItem = event.currentTarget
   })

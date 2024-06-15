@@ -77,7 +77,7 @@ function getItemsPerRow(items) {
 interactionManager.keyboard.on({
   keys: ['E'],//L1
   callback: () => {
-    if(!mainContainer.classList.contains('initial')){
+    if(!isInInitial){
       exitInnerMenu()
     }
     Array.from(headerNavItems).find((item) => item.classList.contains('current')).focus();
@@ -89,7 +89,7 @@ interactionManager.keyboard.on({
 interactionManager.keyboard.on({
   keys: ['Q'], //R1
   callback: () => {
-    if(!mainContainer.classList.contains('initial')){
+    if(!isInInitial){
       exitInnerMenu()
     }
     Array.from(headerNavItems).find((item) => item.classList.contains('current')).focus();
@@ -101,7 +101,7 @@ interactionManager.keyboard.on({
 interactionManager.keyboard.on({
   keys: ['ARROW_LEFT'],
   callback: () => {
-    if(!mainContainer.classList.contains('initial')){
+    if(!isInInitial){
       focusLastGridItem()
       changeHorizontalFocus(-1, gridItems);
     }
@@ -111,7 +111,7 @@ interactionManager.keyboard.on({
 interactionManager.keyboard.on({
   keys: ['ARROW_RIGHT'],
   callback: () => {
-    if(!mainContainer.classList.contains('initial')){
+    if(!isInInitial){
       focusLastGridItem()
       changeHorizontalFocus(1, gridItems);
     }
@@ -122,7 +122,7 @@ interactionManager.keyboard.on({
 interactionManager.keyboard.on({
   keys: ['ARROW_DOWN'],
   callback: () => {
-    if(!mainContainer.classList.contains('initial')){
+    if(!isInInitial){
       changeVerticalFocus(1, gridItems);
     } else{
       sideNavIconsCont.querySelector('.current').focus()
@@ -135,7 +135,7 @@ interactionManager.keyboard.on({
 interactionManager.keyboard.on({
   keys: ['ARROW_UP'],
   callback: () => {
-    if(!mainContainer.classList.contains('initial')){
+    if(!isInInitial){
       changeVerticalFocus(-1, gridItems);
       return
     } else{
