@@ -74,103 +74,74 @@ function getItemsPerRow(items) {
   return count;
 }
 
-interactionManager.keyboard.on({
-  keys: ['E'],//L1
-  callback: () => {
+const focusCurrentItem = (collection) => {
+  Array.from(collection).find((item) => item.classList.contains('current')).focus();
+}
+
+const keyActions = {
+  'E': () => {
     if(!isInInitial){
       exitInnerMenu()
     }
-    Array.from(headerNavItems).find((item) => item.classList.contains('current')).focus();
+    focusCurrentItem(headerNavItems)
     changeFocus(1, headerNavItems);
   },
-  type: ['press']
-})  
-
-interactionManager.keyboard.on({
-  keys: ['Q'], //R1
-  callback: () => {
+  'Q': () => {
     if(!isInInitial){
       exitInnerMenu()
     }
-    Array.from(headerNavItems).find((item) => item.classList.contains('current')).focus();
+    focusCurrentItem(headerNavItems)
     changeFocus(-1, headerNavItems);
   },
-  type: ['press']
-})  
-
-interactionManager.keyboard.on({
-  keys: ['ARROW_LEFT'],
-  callback: () => {
+  'ARROW_LEFT': () => {
     if(!isInInitial){
       focusLastGridItem()
       changeHorizontalFocus(-1, gridItems);
     }
   },
-  type: ['press']
-})  
-interactionManager.keyboard.on({
-  keys: ['ARROW_RIGHT'],
-  callback: () => {
+  'ARROW_RIGHT': () => {
     if(!isInInitial){
       focusLastGridItem()
       changeHorizontalFocus(1, gridItems);
     }
   },
-  type: ['press']
-})  
-
-interactionManager.keyboard.on({
-  keys: ['ARROW_DOWN'],
-  callback: () => {
-    if(!isInInitial){
-      changeVerticalFocus(1, gridItems);
-    } else{
-      sideNavIconsCont.querySelector('.current').focus()
-      changeFocus(1, sideNavItems);
-    }
-  },
-  type: ['press']
-})  
-
-interactionManager.keyboard.on({
-  keys: ['ARROW_UP'],
-  callback: () => {
+  'ARROW_UP': () => {
     if(!isInInitial){
       changeVerticalFocus(-1, gridItems);
       return
     } else{
-      sideNavIconsCont.querySelector('.current').focus()
+      focusCurrentItem(sideNavItems)
       changeFocus(-1, sideNavItems);
     }
   },
-  type: ['press']
-})  
-
-interactionManager.keyboard.on({
-  keys: ['ESC'], // O playstation button
-  callback: () => {
+  'ARROW_DOWN': () => {
+    if(!isInInitial){
+      changeVerticalFocus(1, gridItems);
+    } else{
+      focusCurrentItem(sideNavItems)
+      changeFocus(1, sideNavItems);
+    }
+  },
+  'ESC' : () => {
     collapseSideNav()
     exitInnerMenu()
   },
-  type: ['press']
-})  
-
-interactionManager.keyboard.on({
-  keys: ['Enter'],
-  callback: (event) => {
+  'ENTER': (event) => {
     if(event.target.parentElement.classList.contains('side-nav-links') || event.target.parentElement.classList.contains('nav-links')){
       enterInnerMenu();
     }
   },
-  type: ['press'],
-})
-
-interactionManager.keyboard.on({
-  keys: ['F'], //X playstation button
-  callback: (event) => {
-    if(event.target.parentElement.classList.contains('side-nav-links')){
+  'F': (event) => {
+    if(event.target.parentElement.classList.contains('side-nav-links') || event.target.parentElement.classList.contains('nav-links')){
       enterInnerMenu();
     }
-  },
-  type: ['press'],
-})
+  }
+}
+
+Object.keys(keyActions).forEach(key => {
+  interactionManager.keyboard.on({
+    keys: [key],
+    callback: keyActions[key],
+    type: ['press']
+  });
+});
