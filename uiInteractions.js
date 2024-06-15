@@ -105,10 +105,10 @@ Array.from(gridItems).forEach((gridItem) => {
 
 itemsGrid.addEventListener('click', enterInnerMenu)
 sideNavIconsCont.addEventListener('mouseenter', expandSideNav)
-sideNavIconsCont.addEventListener('focusin', expandSideNav)
 sideNav.addEventListener('mouseleave', collapseSideNav)
-sideNav.addEventListener('focusout', collapseSideNav)   
 
 document.addEventListener("DOMContentLoaded", () => {
   initiallyFocusHeaderElement();
 });
+
+//ADD BACK AND SELECT HOVER AND ONCLICK
