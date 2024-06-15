@@ -8,7 +8,7 @@
 ul {
   list-style: none;
 }
-*:focus{
+*:focus {
   outline: none;
 }
 
@@ -130,29 +130,31 @@ main {
     3.5rem;
 }
 
-.nav-link.current > span{
+.nav-link.current > span {
   color: #dcd284;
   display: inline-block;
   animation: translateUp ease 0.3s;
 }
-.nav-link.current::after{
+.nav-link.current::after {
   animation: translateDown ease 0.3s;
 }
 
 @keyframes translateUp {
-  0%, 100%{
+  0%,
+  100% {
     transform: translateY(0);
   }
-  50%{
+  50% {
     transform: translateY(-20%);
   }
 }
 
 @keyframes translateDown {
-  0%, 100%{
+  0%,
+  100% {
     transform: translateY(0);
   }
-  50%{
+  50% {
     transform: translateY(20%);
   }
 }
@@ -170,7 +172,7 @@ main {
   height: 100%;
 }
 
-.side-nav-menu{
+.side-nav-menu {
   position: relative;
 }
 .side-nav-menu::before {
@@ -181,7 +183,7 @@ main {
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, .85) 30%,
+    rgba(0, 0, 0, 0.85) 30%,
     rgba(0, 0, 0, 0.85) 65%,
     rgba(0, 0, 0, 0) 100%
   );
@@ -197,7 +199,7 @@ main {
   position: relative;
 }
 
-.side-nav-link{
+.side-nav-link {
   display: flex;
   align-items: center;
   position: relative;
@@ -220,7 +222,7 @@ main {
 }
 .main-content.initial .side-nav-link.new.current .side-nav-icon::before,
 .main-content.initial .side-nav-link.new:hover .side-nav-icon::before,
-.main-content.initial .side-nav-link.new:focus .side-nav-icon::before{
+.main-content.initial .side-nav-link.new:focus .side-nav-icon::before {
   background-image: url('./assets/badge-new-small-on.png');
 }
 
@@ -235,19 +237,20 @@ main {
 }
 
 .main-content.initial .side-nav-link:hover .side-nav-icon,
-.main-content.initial .side-nav-link:focus .side-nav-icon{
+.main-content.initial .side-nav-link:focus .side-nav-icon {
   animation: slideLeft 0.3s linear alternate;
 }
 @keyframes slideLeft {
-  0%, 100%{
+  0%,
+  100% {
     transform: translateX(0);
   }
-  50%{
+  50% {
     transform: translateX(-0.3rem);
   }
 }
 
-.side-nav-link > span{
+.side-nav-link > span {
   position: absolute;
   visibility: hidden;
   opacity: 0;
@@ -257,123 +260,125 @@ main {
   white-space: nowrap;
   cursor: pointer;
   color: #9da8a6;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition:
+    opacity 0.3s ease-in-out,
+    visibility 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 }
 
 .side-nav-link:hover > span,
-.side-nav-link:focus > span{
+.side-nav-link:focus > span {
   color: #fffdd2;
 }
 
 .main-content.initial .side-nav-link.current > span,
 .main-content.initial .side-nav-link:hover > span,
-.main-content.initial .side-nav-link:focus > span{
+.main-content.initial .side-nav-link:focus > span {
   color: #dcd284;
 }
 /* Initial state */
-.main-content.initial .side-nav-link > span{
+.main-content.initial .side-nav-link > span {
   position: static;
 }
 /* Hover animation */
 .side-nav.expanded-menu .side-nav-link > span,
-.main-content.initial .side-nav-link > span{
+.main-content.initial .side-nav-link > span {
   opacity: 1;
-  visibility:visible;
+  visibility: visible;
   transform: translate(0);
 }
-.items-grid.expanded-menu{
+.items-grid.expanded-menu {
   transform: translateX(5rem);
 }
 .items-desc.expanded-menu,
-.main-content.initial .items-desc{
+.main-content.initial .items-desc {
   min-width: 0;
   opacity: 0;
   visibility: hidden;
   transform: translateX(20%);
 }
 
-
 /* Weapons */
-.side-nav-link.--weapons > .side-nav-icon{
+.side-nav-link.--weapons > .side-nav-icon {
   background-image: url(./assets/ui-side-weapons-off.png);
 }
 .side-nav-link.--weapons:hover > .side-nav-icon,
-.side-nav-link.--weapons:focus > .side-nav-icon{
+.side-nav-link.--weapons:focus > .side-nav-icon {
   background-image: url(./assets/ui-side-weapons-hover.png);
 }
 .side-nav-link.--weapons.current > .side-nav-icon,
 .main-content.initial .side-nav-link.--weapons:hover > .side-nav-icon,
-.main-content.initial .side-nav-link.--weapons:focus > .side-nav-icon{
+.main-content.initial .side-nav-link.--weapons:focus > .side-nav-icon {
   background-image: url(./assets/ui-side-weapons-on.png);
 }
 
 /* Outfits */
-.side-nav-link.--outfits > .side-nav-icon{
+.side-nav-link.--outfits > .side-nav-icon {
   background-image: url(./assets/ui-side-outfits-off.png);
 }
-.side-nav-link.--outfits:hover > .side-nav-icon ,
+.side-nav-link.--outfits:hover > .side-nav-icon,
 .side-nav-link.--outfits:focus > .side-nav-icon {
   background-image: url(./assets/ui-side-outfits-hover.png);
 }
 .side-nav-link.--outfits.current > .side-nav-icon,
 .main-content.initial .side-nav-link.--outfits:hover > .side-nav-icon,
-.main-content.initial .side-nav-link.--outfits:focus > .side-nav-icon{
+.main-content.initial .side-nav-link.--outfits:focus > .side-nav-icon {
   background-image: url(./assets/ui-side-outfits-on.png);
 }
 
 /* Tools */
-.side-nav-link.--tools > .side-nav-icon{
+.side-nav-link.--tools > .side-nav-icon {
   background-image: url(./assets/ui-side-tools-off.png);
 }
 .side-nav-link.--tools:hover > .side-nav-icon,
-.side-nav-link.--tools:focus > .side-nav-icon{
+.side-nav-link.--tools:focus > .side-nav-icon {
   background-image: url(./assets/ui-side-tools-hover.png);
 }
 .side-nav-link.--tools.current > .side-nav-icon,
 .main-content.initial .side-nav-link.--tools:hover > .side-nav-icon,
-.main-content.initial .side-nav-link.--tools:focus > .side-nav-icon{
+.main-content.initial .side-nav-link.--tools:focus > .side-nav-icon {
   background-image: url(./assets/ui-side-tools-on.png);
 }
 
 /* Upgrades */
-.side-nav-link.--upgrades > .side-nav-icon{
+.side-nav-link.--upgrades > .side-nav-icon {
   background-image: url(./assets/ui-side-upgrades-off-.png);
 }
 .side-nav-link.--upgrades:hover > .side-nav-icon,
-.side-nav-link.--upgrades:focus > .side-nav-icon{
+.side-nav-link.--upgrades:focus > .side-nav-icon {
   background-image: url(./assets/ui-side-upgrades-hover.png);
 }
 .side-nav-link.--upgrades.current > .side-nav-icon,
 .main-content.initial .side-nav-link.--upgrades:hover > .side-nav-icon,
-.main-content.initial .side-nav-link.--upgrades:focus > .side-nav-icon{
+.main-content.initial .side-nav-link.--upgrades:focus > .side-nav-icon {
   background-image: url(./assets/ui-side-upgrades-on.png);
 }
 
 /* Ammo */
-.side-nav-link.--ammo > .side-nav-icon{
+.side-nav-link.--ammo > .side-nav-icon {
   background-image: url(./assets/ui-side-ammo-off.png);
 }
 .side-nav-link.--ammo:hover > .side-nav-icon,
-.side-nav-link.--ammo:focus > .side-nav-icon{
+.side-nav-link.--ammo:focus > .side-nav-icon {
   background-image: url(./assets/ui-side-ammo-hover.png);
 }
 .side-nav-link.--ammo.current > .side-nav-icon,
 .main-content.initial .side-nav-link.--ammo:hover > .side-nav-icon,
-.main-content.initial .side-nav-link.--ammo:focus > .side-nav-icon{
+.main-content.initial .side-nav-link.--ammo:focus > .side-nav-icon {
   background-image: url(./assets/ui-side-ammo-on.png);
 }
 
 /* Travel */
-.side-nav-link.--travel > .side-nav-icon{
+.side-nav-link.--travel > .side-nav-icon {
   background-image: url(./assets/ui-side-travel-off.png);
 }
 .side-nav-link.--travel:hover > .side-nav-icon,
-.side-nav-link.--travel:focus > .side-nav-icon{
+.side-nav-link.--travel:focus > .side-nav-icon {
   background-image: url(./assets/ui-side-travel-hover.png);
 }
 .side-nav-link.--travel.current > .side-nav-icon,
 .main-content.initial .side-nav-link.--travel:hover > .side-nav-icon,
-.main-content.initial .side-nav-link.--travel:focus > .side-nav-icon{
+.main-content.initial .side-nav-link.--travel:focus > .side-nav-icon {
   background-image: url(./assets/ui-side-travel-on.png);
 }
 
@@ -488,7 +493,10 @@ main {
   min-width: 40%;
   opacity: 1;
   visibility: visible;
-  transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
+  transition:
+    transform 0.3s ease-out,
+    opacity 0.3s ease-out,
+    visibility 0.3s ease-out;
   min-height: 50vh;
 }
 
@@ -550,7 +558,7 @@ main {
   gap: 0.1rem;
   color: #7b7a76;
 }
-.suited-item-checked{
+.suited-item-checked {
   max-width: 1.25rem;
 }
 
@@ -591,6 +599,6 @@ main {
   cursor: pointer;
 }
 
-.controller-input-container > span:hover{
+.controller-input-container > span:hover {
   color: #fffdd2;
 }

@@ -3,20 +3,20 @@ function changeFocus(move, items) {
   let nextIndex = currentIndex + move;
 
   if (nextIndex >= items.length) {
-      nextIndex -= items.length;
+    nextIndex -= items.length;
   } else if (nextIndex < 0) {
-      nextIndex += items.length;
+    nextIndex += items.length;
   }
 
   items[nextIndex].focus();
-  items[currentIndex].classList.remove('current')
-  items[nextIndex].classList.add('current')
+  items[currentIndex].classList.remove('current');
+  items[nextIndex].classList.add('current');
 }
 
 function changeHorizontalFocus(move, items) {
-  const itemsPerRow = getItemsPerRow(items); 
+  const itemsPerRow = getItemsPerRow(items);
   const totalItems = items.length;
-  
+
   const currentIndex = Array.from(items).indexOf(document.activeElement);
   let nextIndex = currentIndex + move;
 
@@ -29,13 +29,13 @@ function changeHorizontalFocus(move, items) {
     endIndexOfRow = totalItems - 1;
   }
 
-  if (move > 0) { 
+  if (move > 0) {
     if (nextIndex > endIndexOfRow) {
-      nextIndex = startIndexOfRow; 
+      nextIndex = startIndexOfRow;
     }
-  } else if (move < 0) { 
+  } else if (move < 0) {
     if (nextIndex < startIndexOfRow) {
-      nextIndex = endIndexOfRow; 
+      nextIndex = endIndexOfRow;
     }
   }
 
@@ -43,7 +43,7 @@ function changeHorizontalFocus(move, items) {
   lastFocusedItem = items[nextIndex];
 }
 
-function changeVerticalFocus(move, items){
+function changeVerticalFocus(move, items) {
   const itemsPerRow = getItemsPerRow(items);
   const totalItems = items.length;
   const currentIndex = Array.from(items).indexOf(document.activeElement);
@@ -55,10 +55,13 @@ function changeVerticalFocus(move, items){
 
   const nextIndex = newRow * itemsPerRow + currentColumn;
 
-  if (nextIndex < totalItems && Math.floor(nextIndex / itemsPerRow) === newRow) {
+  if (
+    nextIndex < totalItems &&
+    Math.floor(nextIndex / itemsPerRow) === newRow
+  ) {
     items[nextIndex].focus();
     lastFocusedItem = items[nextIndex];
-  } 
+  }
 }
 
 function getItemsPerRow(items) {
@@ -75,73 +78,81 @@ function getItemsPerRow(items) {
 }
 
 const focusCurrentItem = (collection) => {
-  Array.from(collection).find((item) => item.classList.contains('current')).focus();
-}
+  Array.from(collection)
+    .find((item) => item.classList.contains('current'))
+    .focus();
+};
 
 const keyActions = {
-  'E': () => {
-    if(!isInInitial){
-      exitInnerMenu()
+  E: () => {
+    if (!isInInitial) {
+      exitInnerMenu();
     }
-    focusCurrentItem(headerNavItems)
+    focusCurrentItem(headerNavItems);
     changeFocus(1, headerNavItems);
   },
-  'Q': () => {
-    if(!isInInitial){
-      exitInnerMenu()
+  Q: () => {
+    if (!isInInitial) {
+      exitInnerMenu();
     }
-    focusCurrentItem(headerNavItems)
+    focusCurrentItem(headerNavItems);
     changeFocus(-1, headerNavItems);
   },
-  'ARROW_LEFT': () => {
-    if(!isInInitial){
-      focusLastGridItem()
+  ARROW_LEFT: () => {
+    if (!isInInitial) {
+      focusLastGridItem();
       changeHorizontalFocus(-1, gridItems);
     }
   },
-  'ARROW_RIGHT': () => {
-    if(!isInInitial){
-      focusLastGridItem()
+  ARROW_RIGHT: () => {
+    if (!isInInitial) {
+      focusLastGridItem();
       changeHorizontalFocus(1, gridItems);
     }
   },
-  'ARROW_UP': () => {
-    if(!isInInitial){
+  ARROW_UP: () => {
+    if (!isInInitial) {
       changeVerticalFocus(-1, gridItems);
-      return
-    } else{
-      focusCurrentItem(sideNavItems)
+      return;
+    } else {
+      focusCurrentItem(sideNavItems);
       changeFocus(-1, sideNavItems);
     }
   },
-  'ARROW_DOWN': () => {
-    if(!isInInitial){
+  ARROW_DOWN: () => {
+    if (!isInInitial) {
       changeVerticalFocus(1, gridItems);
-    } else{
-      focusCurrentItem(sideNavItems)
+    } else {
+      focusCurrentItem(sideNavItems);
       changeFocus(1, sideNavItems);
     }
   },
-  'ESC' : () => {
-    collapseSideNav()
-    exitInnerMenu()
+  ESC: () => {
+    collapseSideNav();
+    exitInnerMenu();
   },
-  'ENTER': (event) => {
-    if(event.target.parentElement.classList.contains('side-nav-links') || event.target.parentElement.classList.contains('nav-links')){
+  ENTER: (event) => {
+    if (
+      event.target.parentElement.classList.contains('side-nav-links') ||
+      event.target.parentElement.classList.contains('nav-links')
+    ) {
       enterInnerMenu();
     }
   },
-  'F': (event) => {
-    if(event.target.parentElement.classList.contains('side-nav-links') || event.target.parentElement.classList.contains('nav-links')){
+  F: (event) => {
+    if (
+      event.target.parentElement.classList.contains('side-nav-links') ||
+      event.target.parentElement.classList.contains('nav-links')
+    ) {
       enterInnerMenu();
     }
-  }
-}
+  },
+};
 
-Object.keys(keyActions).forEach(key => {
+Object.keys(keyActions).forEach((key) => {
   interactionManager.keyboard.on({
     keys: [key],
     callback: keyActions[key],
-    type: ['press']
+    type: ['press'],
   });
 });
