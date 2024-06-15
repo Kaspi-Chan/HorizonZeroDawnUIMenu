@@ -125,5 +125,3 @@ footerSelectButton.addEventListener('click', enterInnerMenu);
 document.addEventListener('DOMContentLoaded', () => {
   initiallyFocusHeaderElement();
 });
-
-//ADD BACK AND SELECT HOVER AND ONCLICK
