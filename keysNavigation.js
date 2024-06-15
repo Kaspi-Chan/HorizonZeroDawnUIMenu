@@ -1,6 +1,3 @@
-const headerNavItems = headerNav.querySelectorAll('li');
-const sideNavItems = sideNavIconsCont.querySelectorAll('li');
-
 function changeFocus(move, items) {
   const currentIndex = Array.from(items).indexOf(document.activeElement);
   let nextIndex = currentIndex + move;
@@ -47,22 +44,20 @@ function changeHorizontalFocus(move, items) {
 }
 
 function changeVerticalFocus(move, items){
-  const itemsPerRow = 4;
+  const itemsPerRow = getItemsPerRow(items);
   const totalItems = items.length;
   const currentIndex = Array.from(items).indexOf(document.activeElement);
   const currentColumn = currentIndex % itemsPerRow;
   const totalRows = Math.ceil(totalItems / itemsPerRow);
 
-  // Calculate the new row, incorporating wrapping
   const currentRow = Math.floor(currentIndex / itemsPerRow);
   let newRow = (currentRow + move + totalRows) % totalRows;
 
-  const newIndex = newRow * itemsPerRow + currentColumn;
+  const nextIndex = newRow * itemsPerRow + currentColumn;
 
-  // Check if the new index is within the bounds of total items and the column exists in the new row
-  if (newIndex < totalItems && Math.floor(newIndex / itemsPerRow) === newRow) {
-    items[newIndex].focus();
-    lastFocusedItem = items[newIndex];
+  if (nextIndex < totalItems && Math.floor(nextIndex / itemsPerRow) === newRow) {
+    items[nextIndex].focus();
+    lastFocusedItem = items[nextIndex];
   } 
 }
 
@@ -82,7 +77,9 @@ function getItemsPerRow(items) {
 interactionManager.keyboard.on({
   keys: ['E'],//L1
   callback: () => {
-    if(!mainContainer.classList.contains('initial')) mainContainer.classList.add('initial')
+    if(!mainContainer.classList.contains('initial')){
+      exitInnerMenu()
+    }
     Array.from(headerNavItems).find((item) => item.classList.contains('current')).focus();
     changeFocus(1, headerNavItems);
   },
@@ -92,7 +89,9 @@ interactionManager.keyboard.on({
 interactionManager.keyboard.on({
   keys: ['Q'], //R1
   callback: () => {
-    if(!mainContainer.classList.contains('initial')) mainContainer.classList.add('initial')
+    if(!mainContainer.classList.contains('initial')){
+      exitInnerMenu()
+    }
     Array.from(headerNavItems).find((item) => item.classList.contains('current')).focus();
     changeFocus(-1, headerNavItems);
   },
@@ -103,11 +102,7 @@ interactionManager.keyboard.on({
   keys: ['ARROW_LEFT'],
   callback: () => {
     if(!mainContainer.classList.contains('initial')){
-      if(!lastFocusedItem){
-        gridItems[0].focus()
-      }else{
-        lastFocusedItem.focus
-      }
+      focusLastGridItem()
       changeHorizontalFocus(-1, gridItems);
     }
   },
@@ -117,6 +112,7 @@ interactionManager.keyboard.on({
   keys: ['ARROW_RIGHT'],
   callback: () => {
     if(!mainContainer.classList.contains('initial')){
+      focusLastGridItem()
       changeHorizontalFocus(1, gridItems);
     }
   },
@@ -128,10 +124,10 @@ interactionManager.keyboard.on({
   callback: () => {
     if(!mainContainer.classList.contains('initial')){
       changeVerticalFocus(1, gridItems);
-      return
-    } 
-    sideNavIconsCont.querySelector('.current').focus()
-    changeFocus(1, sideNavItems);
+    } else{
+      sideNavIconsCont.querySelector('.current').focus()
+      changeFocus(1, sideNavItems);
+    }
   },
   type: ['press']
 })  
@@ -142,9 +138,10 @@ interactionManager.keyboard.on({
     if(!mainContainer.classList.contains('initial')){
       changeVerticalFocus(-1, gridItems);
       return
-    } 
-    sideNavIconsCont.querySelector('.current').focus()
-    changeFocus(-1, sideNavItems);
+    } else{
+      sideNavIconsCont.querySelector('.current').focus()
+      changeFocus(-1, sideNavItems);
+    }
   },
   type: ['press']
 })  
@@ -153,8 +150,7 @@ interactionManager.keyboard.on({
   keys: ['ESC'], // O playstation button
   callback: () => {
     collapseSideNav()
-    mainContainer.classList.add('initial')
-    sideNavIconsCont.querySelector('.current').focus()
+    exitInnerMenu()
   },
   type: ['press']
 })  

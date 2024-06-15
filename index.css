@@ -395,13 +395,11 @@ main {
 }
 
 /* Hover/Focus logic */
-.grid-item:hover,
 .grid-item:focus,
 .grid-item.current {
   background-image: url(./assets/ui-grid-big-on.png);
 }
 
-.grid-item:hover::before,
 .grid-item:focus::before,
 .grid-item.current::before {
   content: '';
