@@ -18,3 +18,6 @@ The design was provided with the playstation input glyphs but as this is a web p
 - Exit or Select within the Grid-Like Menu:
   - O (Game): ESC (Keyboard)
   - X (Game): F, ENTER (Keyboard)
+
+## Live site at
+https://kaspi-chan.github.io/HorizonZeroDawnUIMenu/
