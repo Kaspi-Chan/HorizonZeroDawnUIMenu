@@ -558,7 +558,6 @@ main {
   color: #fffdd2;
 }
 
-
 @supports (background-image: url('./assets/background.webp')) {
   main {
     background-image: url('./assets/background.webp');

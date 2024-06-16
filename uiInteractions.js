@@ -26,15 +26,15 @@ function setInitial(state) {
   }
 }
 
-const getLongestLiElementWidth = (elementsArr) => {
+function getLongestLiElementWidth(elementsArr) {
   const longestLink = elementsArr.reduce((acc, current) => {
     return acc.offsetWidth > current.offsetWidth ? acc : current;
   }, elementsArr[0].offsetWidth);
 
   return longestLink.offsetWidth;
-};
+}
 
-const switchCurrentBtn = (event) => {
+function switchCurrentBtn(event) {
   const clickedBtn =
     event.type === 'click' ? event.currentTarget : event.target;
   const siblingBtns = Array.from(clickedBtn.parentElement.children);
@@ -42,9 +42,9 @@ const switchCurrentBtn = (event) => {
     button.classList.remove('current');
   });
   clickedBtn.classList.add('current');
-};
+}
 
-const expandSideNav = () => {
+function expandSideNav() {
   if (isInInitial) return;
   const menuLinks = Array.from(
     sideNavIconsCont.querySelectorAll('.side-nav-link > span')
@@ -55,36 +55,36 @@ const expandSideNav = () => {
   sideNav.classList.add('expanded-menu');
   itemDesc.classList.add('expanded-menu');
   itemsGrid.classList.add('expanded-menu');
-};
+}
 
-const collapseSideNav = () => {
+function collapseSideNav() {
   if (isInInitial) return;
   sideNav.style.paddingRight = '5rem';
   itemDesc.classList.remove('expanded-menu');
   itemsGrid.classList.remove('expanded-menu');
   sideNav.classList.remove('expanded-menu');
-};
+}
 
-const initiallyFocusHeaderElement = () => {
+function initiallyFocusHeaderElement() {
   const currentElement = headerNav.querySelector('.current');
   currentElement.focus();
-};
+}
 
-const enterInnerMenu = () => {
+function enterInnerMenu() {
   setInitial(false);
   Array.from(gridItems).forEach((gridItem) =>
     gridItem.setAttribute('tabindex', '0')
   );
   focusLastGridItem();
-};
+}
 
-const exitInnerMenu = () => {
+function exitInnerMenu() {
   setInitial(true);
   Array.from(gridItems).forEach((gridItem) =>
     gridItem.removeAttribute('tabindex')
   );
   sideNavIconsCont.querySelector('.current').focus();
-};
+}
 
 function focusLastGridItem() {
   if (!lastFocusedItem) {

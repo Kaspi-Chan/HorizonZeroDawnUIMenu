@@ -77,11 +77,11 @@ function getItemsPerRow(items) {
   return count;
 }
 
-const focusCurrentItem = (collection) => {
+function focusCurrentItem(collection) {
   Array.from(collection)
     .find((item) => item.classList.contains('current'))
     .focus();
-};
+}
 
 const keyActions = {
   E: () => {

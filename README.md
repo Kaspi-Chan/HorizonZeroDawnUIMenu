@@ -1,4 +1,4 @@
-# Horizon Zero Dawn UI Menu UI Replica 
+# Horizon Zero Dawn UI Menu UI Replica
 
 ## Introduction
 
